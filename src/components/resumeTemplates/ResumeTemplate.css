@@ -1,0 +1,397 @@
+:root {
+    --resume-color-one: #569CD5;
+    --resume-color-two: #C27F4B;
+    --resume-color-three: #904964
+}
+
+
+
+
+.template-preview {
+    width: 100%;
+    height: 50vh;
+    margin: 2%;
+    padding-bottom: 2rem; 
+  }
+
+  .template-preview p {
+    font-size: 2%;
+  }
+  
+  .template-preview h4 {
+    font-size: 5%;
+  }
+
+
+  .skils-section li p{
+    padding-top: -10%;
+  }
+
+
+body {
+    padding: 0.5%;
+}
+
+.avatar {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: solid;
+    font-size: 70%;
+    padding: 2px;
+    margin-right: 2%;
+    color: var(--resume-color-one);
+}
+.resume-one {
+     
+}
+
+.resume-one hr {
+    height: 0.1rem;
+    background-color: var(--resume-color-one);
+} 
+
+
+.resume-one .head {
+    display: flex; 
+}
+
+.resume-one h2 {
+    font-size: 25%;
+    color: var(--resume-color-one);
+}
+
+.resume-one .avatar-and-name-section {
+    flex: 3;
+    display: flex;
+}
+
+.resume-one .avatar {
+    color:  white;
+    background-color: var(--resume-color-one);
+    width: 30%;
+    height: 30%;
+}
+
+
+
+.resume-one .name-and-job h1 {
+    color:  var(--resume-color-one);
+    margin-bottom: 0%;
+    font-size: 45%;
+}
+.resume-one .name-and-job h4{
+    color: black;
+    font-size:  15%;
+}
+
+.resume-one .add-and-contact p {
+    color: var(--resume-color-one);
+    font-size: 1%;
+    margin: 0.5%;
+}
+
+.resume-one .intro {
+    color: var(--resume-color-one);
+}
+
+.resume-one .professional-experience-section{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.resume-one .experience {
+    width: 50%;
+    
+}
+
+.resume-one .professional-experience-section h2{
+    font-size: 10%;
+    margin-right: 2%;
+    width: 50%;
+    
+}
+
+.resume-one .professional-experience-section li{
+    color: var(--resume-color-one);
+}
+
+.resume-one .professional-experience-section li span{
+    color: black;
+}
+
+.resume-one .education-section{
+    display: flex;
+}
+
+.resume-one .education-section h2 {
+    font-size: 10%;
+    width: 50%;
+}
+
+
+/* ------------------------ RESUME TWO  ------------------------- */
+
+.resume-two h2 {
+    color: var(--resume-color-two);
+}
+
+.resume-two hr {
+    height: 0.05rem;
+    background-color: var(--resume-color-two);
+}
+
+.resume-two li {
+    color: var(--resume-color-two);
+}
+
+.resume-two li span {
+    color: black;
+}
+
+.resume-two .head {
+    display: flex;
+    padding: 0.5%;
+    
+}
+
+.resume-two h2 {
+    font-size: 25%;
+    color: var(--resume-color-two);
+}
+
+.resume-two .avatar-and-name-section {
+    flex: 3;
+    display: flex;
+}
+
+.resume-two .avatar {
+    color:  white;
+    background-color: var(--resume-color-two);
+    width: 30%;
+    height: 30%;
+}
+
+.resume-two .name-and-job h1 {
+    color:  var(--resume-color-two);
+    margin-bottom: 0%;
+    font-size: 65%;
+}
+.resume-two .name-and-job h4{
+    color: black;
+    font-size:  15%;
+}
+.resume-two .add-and-contact p {
+    color: var(--resume-color-two);
+    font-size: 1%;
+    margin: 0.5%;
+}
+
+.resume-two  p{
+    font-size: 1%;
+}
+.resume-two span {
+    font-size: 1%;
+}
+
+/* ------------------------ RESUME THREE  ------------------------- */
+
+avatar-main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20%;
+}
+
+.resume-three hr {
+    height: 0.05rem;
+    background-color: var(--resume-color-three);
+} 
+
+.resume-three li {
+    color: var(--resume-color-three);
+}
+
+.resume-three li span {
+    color: black;
+}
+
+.resume-three .head {
+    display: flex;
+    padding: 0.5%;
+    
+}
+
+.resume-three .head-session {
+    background-color: var(--resume-color-three);
+    color: white;
+}
+
+
+.resume-three h2 {
+    font-size: 25%;
+    color: var(--resume-color-three);
+}
+
+.resume-three .head-session .avatar-and-name-section {
+    flex: 3;
+    display: flex;
+    color: white;
+    align-items: center;
+}
+
+.resume-three .head-session {
+    padding: -2%;
+}
+
+.resume-three .head-session .avatar {
+    color:  var(--resume-color-three);
+    background-color: white;
+    width: 25%;
+    height: 25%;
+}
+
+.resume-three .head-session .avatar-and-name-section .name-and-job h2 {
+    color:  white;
+    margin-bottom: 0%;
+    font-size: 25%;
+}
+.resume-three .head-session .avatar-and-name-section .name-and-job h4{
+    color: white;
+    font-size:  15%;
+}
+
+.resume-three .add-and-contact p {
+    color: white;
+    font-size: 1%;
+    margin: 0.5%;
+}
+
+.resume-three .head-session  .intro {
+    color: white;
+    padding-bottom: 0.25%;
+    margin-top: 0%;
+    padding-left: 0.75%;
+}
+
+.resume-three .experience-child {
+    display: flex;
+}
+
+.resume-three .experience-child .experience-child-one{
+    width: 30%;
+}
+
+.resume-three .experience-child .experience-child-two{
+    width: 70%;
+}
+
+.resume-three .education-child{
+    display: flex;
+}
+
+.resume-three .education-child .education-child-one{
+    width: 30%;
+}
+
+.resume-three .education-child .education-child-two{
+    width: 70%;
+}
+
+/*                          Resume 4                                    */
+
+.resume-four hr {
+    height: 0.05rem;
+    background-color: var(--resume-color-three);
+} 
+
+.resume-four li {
+    color: var(--resume-color-three);
+}
+
+.resume-four li span {
+    color: black;
+}
+
+
+
+
+.resume-four .head {
+    display: flex;
+    padding: 0.5%;
+    
+}
+
+.resume-four h2 {
+    font-size: 25%;
+    color: var(--resume-color-three);
+}
+
+.resume-four .avatar-and-name-section {
+    flex: 3;
+    display: flex;
+}
+
+.resume-four .avatar {
+    color:  white;
+    background-color: var(--resume-color-three);
+    width: 25%;
+    height: 25%;
+
+}
+
+
+
+.resume-four .name-and-job h1 {
+    color:  var(--resume-color-three);
+    margin-bottom: 0%;
+    margin-top: 2%;
+    font-size: 65%;
+}
+.resume-four .name-and-job h4{
+    color: black;
+    font-size:  15%;
+}
+
+.resume-four .professional-experience-section h2{
+    font-size: 30%;
+
+}
+
+.resume-four .add-and-contact p {
+    color: var(--resume-color-three);
+    font-size: 1%;
+    margin: 0.5%;
+}
+
+.resume-four .intro {
+    color: var(--resume-color-three);
+}
+
+
+
+.resume-four .experience-child {
+    display: flex;
+}
+
+.resume-four .experience-child .experience-child-one{
+    width: 30%;
+}
+
+.resume-four .experience-child .experience-child-two{
+    width: 70%;
+}
+
+.resume-four .education-child{
+    display: flex;
+}
+
+.resume-four .education-child .education-child-one{
+    width: 30%;
+}
+
+.resume-four .education-child .education-child-two{
+    width: 70%;
+}
