@@ -1,19 +1,63 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect,useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { InputUpdateDataContext } from '../../App';
-import { Button, Card , Divider, OutlinedInput, FormHelperText, FormControl,  Box, Avatar } from '@mui/material';
+import { Button, Card , Divider, OutlinedInput, FormHelperText, FormControl,  Box, Avatar, LinearProgress } from '@mui/material';
 import { TextareaAutosize } from '@mui/base';
 import ImageUploadPopUpWindow from './ImageUploadPopUpWindow';
 
+const nameRegex = /^[A-Za-z\s]+$/
+const onlyOneWordRegex = /^[a-zA-Z]+$/
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const mobileRegex = /^\d{10}$/;
+const addressRegex = /^[a-zA-Z0-9\s,\.]+$/
+const postalCodeRegex = /^\d{6}$/;
+const objectiveRegex = /^.{7,}$/
+
+const inputFormatArray =
+[
+    { key: 'fname', label: 'First Name',multiline: false,row: 1, span: 1 , regex: nameRegex, error_message: "Please enter only letter"},
+    { key: 'lname', label: 'Last Name', multiline: false, row: 1, span: 1, regex: nameRegex, error_message: "Please enter only letter"},
+    { key: 'email', label: 'Email', multiline: false, row: 1, span: 1, regex: emailRegex, error_message: "Please Enter valid email"},
+    { key: 'mobile', label: 'Mobile', multiline: false, row: 1, span: 1, regex: mobileRegex, error_message: "Please enter valid mobile number"},
+    { key: 'address', label: 'Address', multiline: false, row: 2, span: 2, regex: addressRegex, error_message: "Please enter valid Address"},
+    { key: 'city', label: 'City', multiline: false, row: 1, span: 1, regex: onlyOneWordRegex, error_message: "Please enter only letter"},
+    { key: 'state', label: 'State', multiline: false, row: 1, span: 1, regex: onlyOneWordRegex, error_message: "Please enter only letter"},
+    { key: 'postal_code', label: 'Postal Code', multiline: false, row: 1, span: 1, regex: postalCodeRegex,  error_message: "Please enter valid Postal Code"},
+    { key: 'objective', label: 'objective', multiline: true, row: 8, span: 2,regex: objectiveRegex, error_message: "Please write more words"}
+]
+
 function PersonalInfo() {
+  const [isLodingVisiable,setIsLodingVisiable ]= useState(false)
+  //
+  const [userInputNotice,setUserInputNotice] = useState(0)
   const inputUpdateDataContext = useContext(InputUpdateDataContext)
   const navigate = useNavigate();
-
-  console.log("--------------------Personal INFO--------------------------");
-  console.log(inputUpdateDataContext.stateInputs)
-  console.log("--------------------Personal INFO--------------------------");
-
   const [open, setOpen] = React.useState(false);
+
+  const isAllFilledPersonalInfo =() =>{
+    if(inputUpdateDataContext.stateInputs.profile_photo!==null &&
+      nameRegex.test(inputUpdateDataContext.stateInputs.fname) &&
+       nameRegex.test(inputUpdateDataContext.stateInputs.lname) && 
+       emailRegex.test(inputUpdateDataContext.stateInputs.email) && 
+       mobileRegex.test(inputUpdateDataContext.stateInputs.mobile) &&
+       onlyOneWordRegex.test(inputUpdateDataContext.stateInputs.city) &&
+       onlyOneWordRegex.test(inputUpdateDataContext.stateInputs.state) && 
+       postalCodeRegex.test(inputUpdateDataContext.stateInputs.postal_code) &&
+       objectiveRegex.test(inputUpdateDataContext.stateInputs.objective))
+       {
+        return true
+       }
+        else {
+          return false
+        }
+}
+const onClickNext = () => {
+  setIsLodingVisiable(true)
+  if(isAllFilledPersonalInfo()) {
+    navigate('/homepage/input-info/work-expreance')
+  }
+}
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -22,6 +66,23 @@ function PersonalInfo() {
     setOpen(false);
   };
 
+  const requiredStr = "please enter "
+
+  useEffect(()=>{
+    if(isLodingVisiable && isAllFilledPersonalInfo()){
+      setIsLodingVisiable(false)
+    }
+  },[userInputNotice])
+  
+
+  const onChangeFuntion = (e, key)=>{
+    
+    inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: `${key}`, val: e.target.value})
+    if(isLodingVisiable){
+      setUserInputNotice(userInputNotice+1)
+    }
+  }
+
   return (
     <Card sx={{  display: 'grid',
     columnGap: 3,
@@ -29,67 +90,40 @@ function PersonalInfo() {
     gridTemplateColumns: 'repeat(2, 1fr)',
     padding: "5%"
     }}>
-       <Box sx={{gridColumn: 'span 2'}}>
+      <Box sx={{gridColumn: 'span 2'}}>
            <Avatar sx={{ width: 156, height: 156 }} src= {inputUpdateDataContext.stateInputs.profile_photo}/>
-          <Button sx={{paddingTop: "1rem"}} onClick={handleClickOpen} variant="text">{inputUpdateDataContext.stateInputs.profile_photo===null? "Upload Image" : "Change Image"}</Button>
+          <Button sx={{paddingTop: "1rem", color: (isLodingVisiable&&inputUpdateDataContext.stateInputs.profile_photo===null)}} onClick={handleClickOpen} variant="text">{inputUpdateDataContext.stateInputs.profile_photo===null? (isLodingVisiable)? "Please upload image" :"Upload Image" : "Change Image"}</Button>
           <ImageUploadPopUpWindow open= {open} handleClose= {handleClose}/>
        </Box>
-        <FormControl>
-            <FormHelperText id="fname">Name</FormHelperText>
-            <OutlinedInput value={inputUpdateDataContext.stateInputs.fname} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "fname", val: e.target.value})}} type="text" name="fname" placeholder="Enter your name" />
-         </FormControl>
 
-         <FormControl>
-            <FormHelperText id="lname">Last Name</FormHelperText>
-            
-            <OutlinedInput value={inputUpdateDataContext.stateInputs.lname} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "lname", val: e.target.value})}} type="text" name="lname" placeholder="Enter your name" />
-         </FormControl>     
-      
-          <FormControl>
-            <FormHelperText id="email">Email:</FormHelperText>
-            <OutlinedInput value={inputUpdateDataContext.stateInputs.email} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "email", val: e.target.value})}}  type="email" id="email" name="email" placeholder="Enter your email" />
-          </FormControl>
-          <FormControl>
-                <FormHelperText id="mobile">Mobile</FormHelperText>
-                <OutlinedInput value={inputUpdateDataContext.stateInputs.mobile} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "mobile", val: e.target.value})}} type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" />
-          </FormControl>
-        
-          <FormControl sx={{gridColumn: 'span 2'}}>
-              <FormHelperText id="address">Address</FormHelperText>
-              <OutlinedInput value={inputUpdateDataContext.stateInputs.address} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "address", val: e.target.value})}} type="text" className='input-full-width' name="address" placeholder="Enter your Address" />
-          </FormControl>
-          
-          
-         <FormControl>
-            <FormHelperText id="city">City</FormHelperText>
-            <OutlinedInput value={inputUpdateDataContext.stateInputs.city} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "city", val: e.target.value})}} type="text" name="city" placeholder="City" />
-         </FormControl>
-
-         <FormControl>
-            <FormHelperText id="state">State</FormHelperText>
-            
-            <OutlinedInput value={inputUpdateDataContext.stateInputs.state} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "state", val: e.target.value})}} type="text" name="state" placeholder="State" />
-         </FormControl>
-       
-
-        <FormControl>
-            <FormHelperText id="postalcode">Postalcode</FormHelperText>
-            
-            <OutlinedInput value={inputUpdateDataContext.stateInputs.postal_code} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "postal_code", val: e.target.value})}} type="text" name="postalcode" placeholder="Postalcode" />
-        </FormControl>
-    
-            <FormControl sx={{gridColumn: 'span 2'}}>
-              <FormHelperText id="objective">Objective</FormHelperText>
-              <TextareaAutosize  value={inputUpdateDataContext.stateInputs.objective} onChange={e => {inputUpdateDataContext.updateDispatch({type: "ONCHANGE", key: "objective", val: e.target.value})}} className='input-full-width'  name="objective" minRows="8" />
+       {
+        inputFormatArray.map(
+          (item,index)=> (
+            <FormControl sx={{gridColumn: `span ${item.span}`}}>
+              <FormHelperText id={`${item.key}`}>
+              {
+              `${(isLodingVisiable && inputUpdateDataContext.stateInputs[`${item.key}`] === "")? 
+              `${requiredStr} ${item.label}`: 
+              (isLodingVisiable && !(item.regex.test(inputUpdateDataContext.stateInputs[`${item.key}`])))? `${item.error_message}`:`${item.label}`}`} </FormHelperText>
+              <OutlinedInput multiline={item.multiline} rows={item.row} 
+              error={(isLodingVisiable && inputUpdateDataContext.stateInputs[`${item.key}`] === "")?
+              true: (isLodingVisiable && !(item.regex.test(inputUpdateDataContext.stateInputs[`${item.key}`])))} 
+              value={inputUpdateDataContext.stateInputs[`${item.key}`]} onChange={e => {onChangeFuntion(e,item.key)}} type="text" name="fname" placeholder= {`Enter your  ${item.label}`}/>
             </FormControl>
-            
-        <Divider sx={{height: "3rem" , gridColumn: 'span 2'}}/>
+          )
+        )
+       }
+       <Divider sx={{height: "3rem" , gridColumn: 'span 2'}}/>
+        {
+          (isLodingVisiable) ? 
+                                <LinearProgress sx={{gridColumn: 'span 2'}} />
+                              :
+                              <Box sx={{gridColumn: 'span 2', display: "flex" , justifyContent: "flex-end" }}>
+                                <Button sx={{margin: "2%"}} variant="outlined" onClick={()=>{ navigate('/homepage/resume-template')}}>Back</Button>
+                                <Button sx={{margin: "2%"}} variant="contained" onClick={onClickNext}>Next</Button>
+                              </Box>
+        }
 
-        <Box sx={{gridColumn: 'span 2', display: "flex" , justifyContent: "flex-end" }}>
-            <Button sx={{margin: "2%"}} variant="outlined" onClick={()=>{ navigate('/homepage/resume-template')}}>Back</Button>
-            <Button sx={{margin: "2%"}} variant="contained" onClick={()=>{ navigate('/homepage/input-info/work-expreance')}}>Next</Button>
-        </Box>
-   
     </Card>
   )
 }

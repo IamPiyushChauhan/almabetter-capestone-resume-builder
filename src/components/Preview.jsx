@@ -28,13 +28,17 @@ function Preview() {
   };
 
   const printAndNavigate = () => {
-    print()
-    inputUpdateDataContext.updateDispatch({type: "RESET"})
+    if(! inputUpdateDataContext.stateInputs.is_edit){
+      print()
+    }
+    
+    
     setIsOpenDialog(true)
     setTimeout(() => {
       setIsOpenDialog(false)
       navigate("/homepage/my-resume")
   }, 1000);
+  
   }
 
   const saveResume = () => {

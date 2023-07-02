@@ -50,7 +50,7 @@ function ResumeTemplateOptions() {
 
        <div className='template-selection' style={{flexDirection: midScreen? "column" : "row"}}>
 
-       <Grid container spacing={2}>
+       <Grid container spacing={2} sx={{paddingTop: "1rem"}}>
         {["one","two","three","four"].map((item,index)=> (
          <Grid xs={smallScreen? 12 : midScreen? 6: 3}>
          <div class="resume-template-area" style={{width: smallScreen? "90%": midScreen? "70%": "20vw" , margin: "5%"}}>

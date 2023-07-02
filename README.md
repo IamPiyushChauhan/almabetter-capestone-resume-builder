@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Project Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Project Template
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Project Description](#project-description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
 
-### `npm start`
+## Project Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Project Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The "Resume Builder" is a web application that allows users to create and manage their resumes easily. With this application, users can leverage the free templates provided by resume builders to create professional-looking resumes. The process is simple: users can select a template from the available options, fill out the required information, and download the finalized resume as a PDF document.
 
-### `npm test`
+## Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Template Selection**: The application offers a variety of pre-designed resume templates for users to choose from. Each template is visually appealing and designed to highlight different aspects of a resume.
 
-### `npm run build`
+2. **Resume Creation**: Users can enter their personal information, such as contact details, work experience, education and skills required for their specific industry or job application. The application provides a user-friendly interface for inputting and organizing this information.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Resume Management**: The application allows users to save and access their previously created resumes. Users can easily view and update their resumes whenever necessary, ensuring that they always have the most up-to-date version available.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **PDF Export**: Once the resume is complete, users can download it as a PDF document. This feature ensures that the resume maintains its formatting and professional appearance when shared with potential employers.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+To install and set up the project locally, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/react-project-template.git
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Navigate to the project directory:
+   ```bash
+   cd react-project-template
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+To run the project locally, use the following command:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This command starts the development server and opens the application in your default browser.
 
-### Code Splitting
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This React project template includes the following features:
 
-### Analyzing the Bundle Size
+- Basic file structure and organization
+- React Router for handling navigation
+- Material UI for UI components
+- jsPdf for converting react component to pdf
+- React Avatar Edit for 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Technologies Used
 
-### Making a Progressive Web App
+The main technologies and tools used in this project are:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React
+- React Router
+- JSPDF
+- React Avatar Edit
+- Material UI

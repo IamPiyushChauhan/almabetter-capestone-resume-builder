@@ -15,8 +15,6 @@ import Preview from './components/Preview';
 
 export const InputUpdateDataContext = React.createContext() 
 
-
-
 const initalState = {
   profile_photo: null,
   fname: "",

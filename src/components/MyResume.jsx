@@ -51,15 +51,17 @@ function MyResume() {
 
      <Grid container spacing={2}>
         {inputUpdateDataContext.myResumeList.map((item,index)=> (
-         <Grid xs={smallScreen? 12 : midScreen? 6: 3}>
+          <Grid xs={smallScreen? 12 : midScreen? 6: 3}>
          <div class="resume-template-area" style={{width: smallScreen? "90%": midScreen? "70%": "20vw" , margin: "5%"}}>
-            <div class={`template-preview-${index}`}><ResumeTemplate data={item.data} resumeNumber={item.resumeNumber}/></div>
+            <div class={`template-preview template-preview-${index}`}><ResumeTemplate data={item.data} resumeNumber={item.resumeNumber}/></div>
 		      <div class="resume-overlay resume-overlay--primary">
-			      <div class="rbutton"><ButtonGroup variant="outlined" aria-label="outlined button group">
+			      <div class="rbutton">
+            <ButtonGroup variant="outlined" aria-label="outlined button group">
                   <Button onClick={()=>{editFunction(index, item.resumeNumber)}}><EditIcon sx={{color: 'white'}}/></Button>
                   <Button onClick={()=>{inputUpdateDataContext.myResumeDiapatch({type: "DELETE" , id: index})}}><DeleteIcon sx={{color: 'white'}}/></Button>
                   <Button onClick={()=>print(item.resumeName,index)}><DownloadForOfflineRoundedIcon sx={{color: 'white'}} /></Button>
-              </ButtonGroup></div>
+              </ButtonGroup>
+            </div>
 		      </div>
          </div>
         </Grid>
