@@ -32,12 +32,12 @@ To install and set up the project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/react-project-template.git
+   git clone https://github.com/IamPiyushChauhan/almabetter-capestone-resume-builder
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd react-project-template
+   cd almabetter-capestone-resume-builder
    ```
 
 3. Install the dependencies:
