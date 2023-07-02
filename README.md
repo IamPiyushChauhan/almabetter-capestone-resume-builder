@@ -1,6 +1,4 @@
-# Project Name
-
-React Project Template
+# Project Name Almabetter Frontend Capestone project Resume Builder
 
 ## Table of Contents
 
