@@ -1,4 +1,4 @@
-# Almabetter Frontend Capestone project Resume Builder
+# Almabetter Frontend Capestone Project Resume Builder
 
 ## Table of Contents
 
