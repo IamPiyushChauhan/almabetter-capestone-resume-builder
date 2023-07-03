@@ -61,7 +61,7 @@ This React project template includes the following features:
 - React Router for handling navigation
 - Material UI for UI components
 - jsPdf for converting react component to pdf
-- React Avatar Edit for 
+- React Avatar Edit for image crop
 
 ## Technologies Used
 
