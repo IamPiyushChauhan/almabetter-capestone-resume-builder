@@ -70,9 +70,13 @@ const myResumeReducer = (state, {type,data, id}) => {
 }
 
 function App() {
+  // use to send and update data given by user in data filling session
   const [state,dispatch] = useReducer(reducer,initalState)
+  // use to save resume data, resume name in list 
   const [myResumeList, myResumeListDiapatch] = useReducer(myResumeReducer,initalMYStateResumeState)
+  //use to save resume name 
   const [resumeState, setResumeState] = useState("")
+  // set resume name
   const updateDataResumeState=(val)=>{
     setResumeState(val)
   }
