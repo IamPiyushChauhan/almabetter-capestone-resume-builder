@@ -13,6 +13,7 @@ const addressRegex = /^[a-zA-Z0-9\s,\.]+$/
 const postalCodeRegex = /^\d{6}$/;
 const objectiveRegex = /^.{7,}$/
 
+// this array contains Props for OutlinedInput and the textvalidation condition and error message for icorrect validation
 const inputFormatArray =
 [
     { key: 'fname', label: 'First Name',multiline: false,row: 1, span: 1 , regex: nameRegex, error_message: "Please enter only letter"},
