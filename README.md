@@ -10,7 +10,6 @@
 
 ## Project Description
 
-# Project Description
 
 The "Resume Builder" is a web application that allows users to create and manage their resumes easily. With this application, users can leverage the free templates provided by resume builders to create professional-looking resumes. The process is simple: users can select a template from the available options, fill out the required information, and download the finalized resume as a PDF document.
 
